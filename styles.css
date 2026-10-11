@@ -1,0 +1,200 @@
+```css
+/* Configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 450px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Selector de temas */
+.theme-selector {
+    display: flex;
+    padding: 5px;
+    margin-bottom: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+}
+
+/* Ocultar los radios sin desactivarlos */
+.theme-selector input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Etiquetas de los temas */
+.theme-selector label {
+    flex: 1;
+    text-align: center;
+    padding: 12px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tema Light seleccionado */
+#light:checked ~ label[for="light"] {
+    background-color: #2864e8;
+    color: white;
+}
+
+/* Tema Dark seleccionado */
+#dark:checked ~ label[for="dark"] {
+    background-color: #2864e8;
+    color: white;
+}
+
+/* Tema Custom seleccionado */
+#custom:checked ~ label[for="custom"] {
+    background-color: #218747;
+    color: white;
+}
+
+/* Tarjeta */
+.card {
+    --background: #ffffff;
+    --text: #222222;
+    --paragraph: #666666;
+    --button: #2864e8;
+
+    background-color: var(--background);
+    color: var(--text);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+.card p {
+    color: var(--paragraph);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Botón */
+.card button {
+    background-color: var(--button);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.card button:hover {
+    opacity: 0.85;
+}
+
+/* Tema Dark */
+body:has(#dark:checked) {
+    background-color: #111820;
+}
+
+body:has(#dark:checked) h1 {
+    color: white;
+}
+
+body:has(#dark:checked) .subtitle {
+    color: #bbbbbb;
+}
+
+body:has(#dark:checked) .theme-selector {
+    background-color: #1c242d;
+    border-color: #343c46;
+}
+
+body:has(#dark:checked) .theme-selector label {
+    color: #eeeeee;
+}
+
+body:has(#dark:checked) #dark:checked ~ label[for="dark"] {
+    background-color: #2864e8;
+    color: white;
+}
+
+body:has(#dark:checked) .card {
+    --background: #1c242d;
+    --text: #ffffff;
+    --paragraph: #cccccc;
+    --button: #2864e8;
+
+    border-color: #343c46;
+}
+
+/* Tema Custom */
+body:has(#custom:checked) {
+    background-color: #f5f0e5;
+}
+
+body:has(#custom:checked) h1 {
+    color: #245c36;
+}
+
+body:has(#custom:checked) .subtitle {
+    color: #667366;
+}
+
+body:has(#custom:checked) .theme-selector {
+    background-color: #fffdf8;
+    border-color: #e4dfd3;
+}
+
+body:has(#custom:checked) .card {
+    --background: #fffdf8;
+    --text: #24452d;
+    --paragraph: #667366;
+    --button: #218747;
+
+    border-color: #e4dfd3;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 22px;
+    }
+}
+```
